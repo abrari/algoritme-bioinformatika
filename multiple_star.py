@@ -103,7 +103,7 @@ def merge_alignments(star_index, aligns):
                 star = merged[0]
                 curr = aligns[k][0]
                 for i in range(max(len(curr), len(star))):
-                    if curr[i] == '-': # gap di curr, maka seluruh merged disisipkan gap
+                    if i < len(curr) and curr[i] == '-': # gap di curr, maka seluruh merged disisipkan gap
                         for m in range(len(merged)):
                             merged[m] = insert_gap(merged[m], i)
                         star = merged[0]
